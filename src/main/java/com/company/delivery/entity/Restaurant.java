@@ -2,6 +2,9 @@ package com.company.delivery.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity(name="Restaurant")
 public class Restaurant {
     @Id
@@ -21,4 +24,7 @@ public class Restaurant {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "brand_id")
     private Brand brand;
+
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+    private List<Menu> listOfMenus = new ArrayList<Menu>();
 }
