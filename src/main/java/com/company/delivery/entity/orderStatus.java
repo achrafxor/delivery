@@ -1,4 +1,4 @@
 package com.company.delivery.entity;
 
-public class OrderStatus {
+public class orderStatus {
 }
