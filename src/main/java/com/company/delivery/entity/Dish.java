@@ -2,6 +2,10 @@ package com.company.delivery.entity;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Entity(name="Dish")
 public class Dish {
     @Id
@@ -22,5 +26,13 @@ public class Dish {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "menu_id")
     private Menu menu;
+
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JoinTable(
+            name = "dish_extras",
+            joinColumns = @JoinColumn(name = "dish_id"),
+            inverseJoinColumns = @JoinColumn(name = "extra_id")
+    )
+    Set<Extra> extras = new HashSet<>();
 
 }
