@@ -1,6 +1,10 @@
 package com.company.delivery.entity;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity(name="DeliveryGuy")
 public class DeliveryGuy {
     @Id
@@ -25,4 +29,7 @@ public class DeliveryGuy {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address deliveryGuyAddress;
+
+    @OneToMany(mappedBy = "deliveryGuy", cascade = CascadeType.ALL)
+    private List<FoodOrder> foodOrders = new ArrayList<FoodOrder>();
 }

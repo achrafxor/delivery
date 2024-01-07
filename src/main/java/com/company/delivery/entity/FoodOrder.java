@@ -1,6 +1,6 @@
 package com.company.delivery.entity;
 
-import com.company.delivery.utils.FoodExtra;
+import com.company.delivery.utils.OrderStatusEnum;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -27,6 +27,16 @@ public class FoodOrder {
 
     @OneToMany(mappedBy = "foodOrder", cascade = CascadeType.ALL)
     private Set<CartExtra> CartExtras = new HashSet<>();
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "delivery_guy_id")
+    private DeliveryGuy deliveryGuy;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_status_id")
+    private OrderStatus orderStatus;
+
 
 
 }
