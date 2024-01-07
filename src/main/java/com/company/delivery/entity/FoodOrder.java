@@ -22,6 +22,10 @@ public class FoodOrder {
     @Column(nullable = false,unique = false)
     private String orderTime;
 
+    @Enumerated
+    @Column(nullable = false,unique = false)
+    private OrderStatusEnum orderStatus;
+
     @OneToMany(mappedBy = "foodOrder", cascade = CascadeType.ALL)
     private Set<CartDish> CartDishes = new HashSet<>();
 
@@ -33,9 +37,6 @@ public class FoodOrder {
     @JoinColumn(name = "delivery_guy_id")
     private DeliveryGuy deliveryGuy;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_status_id")
-    private OrderStatus orderStatus;
 
 
 
