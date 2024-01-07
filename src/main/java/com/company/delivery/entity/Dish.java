@@ -27,12 +27,8 @@ public class Dish {
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinTable(
-            name = "dish_extras",
-            joinColumns = @JoinColumn(name = "dish_id"),
-            inverseJoinColumns = @JoinColumn(name = "extra_id")
-    )
-    Set<Extra> extras = new HashSet<>();
+    @OneToMany(mappedBy = "dish", cascade = CascadeType.ALL)
+    private Set<CartDish> CartDishes = new HashSet<>();
+
 
 }

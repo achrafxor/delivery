@@ -13,13 +13,23 @@ public class Extra {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer dishId;
+    private Integer extraId;
+
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false,unique = false)
-    private FoodExtra extra;
+    private FoodExtra item;
 
-    @ManyToMany(mappedBy = "extras")
-    private Set<Dish> dishes = new HashSet<>();
+    @Column(nullable = false,unique = false)
+    private Short Price;
+
+    @OneToMany(mappedBy = "extra", cascade = CascadeType.ALL)
+    private Set<CartExtra> CartExtras = new HashSet<>();
+
+
+
+
+
 
 
 }

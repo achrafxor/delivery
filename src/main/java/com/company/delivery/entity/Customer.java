@@ -3,11 +3,14 @@ package com.company.delivery.entity;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity(name="Customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer customerId;
     @Column(nullable = false,unique = true)
     private String customerEmail;
     @Column(nullable = false,unique = false)
@@ -24,9 +27,12 @@ public class Customer {
     @JoinColumn(name = "address_id")
     private Address customerAddress;
 
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private Set<FoodOrder> orderSet = new HashSet<>();
+
 
     public Integer getId() {
-        return id;
+        return customerId;
     }
 
     public String getCustomerEmail() {
