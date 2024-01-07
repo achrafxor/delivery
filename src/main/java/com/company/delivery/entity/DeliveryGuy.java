@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name="DeliveryGuy")
+@Table
 public class DeliveryGuy {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer deliveryGuyId;
     @Column(nullable = false,unique = false)
     private String firstNameName;

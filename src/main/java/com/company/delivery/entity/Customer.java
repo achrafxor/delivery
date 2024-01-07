@@ -7,9 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name="Customer")
+@Table
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customerId;
     @Column(nullable = false,unique = true)
     private String customerEmail;

@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.Set;
 
 @Entity(name="Extra")
+@Table
 public class Extra {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer extraId;
 
 

@@ -7,9 +7,10 @@ import java.util.List;
 import java.util.Set;
 
 @Entity(name="Dish")
+@Table
 public class Dish {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer dishId;
     @Column(nullable = false,unique = false)
     private String item;

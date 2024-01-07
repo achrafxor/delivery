@@ -3,10 +3,11 @@ package com.company.delivery.entity;
 import jakarta.persistence.*;
 
 @Entity(name="CartDish")
+@Table
 public class CartDish {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cartDishId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

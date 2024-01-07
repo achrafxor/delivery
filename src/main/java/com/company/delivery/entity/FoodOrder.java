@@ -7,9 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name="FoodOrder")
+@Table
 public class FoodOrder {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer foodOrderId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -26,16 +27,20 @@ public class FoodOrder {
     @Column(nullable = false,unique = false)
     private OrderStatusEnum orderStatus;
 
-    @OneToMany(mappedBy = "foodOrder", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "foodOrder", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Set<CartDish> CartDishes = new HashSet<>();
 
-    @OneToMany(mappedBy = "foodOrder", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "foodOrder", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Set<CartExtra> CartExtras = new HashSet<>();
 
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_guy_id")
     private DeliveryGuy deliveryGuy;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id")
+    private Address foodOrderAddress;
 
 
 
