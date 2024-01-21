@@ -1,12 +1,18 @@
 package com.company.delivery.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name="DeliveryGuy")
 @Table
+@Getter
+@Setter
+@NoArgsConstructor
 public class DeliveryGuy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,4 +39,15 @@ public class DeliveryGuy {
 
     @OneToMany(mappedBy = "deliveryGuy", cascade = CascadeType.ALL)
     private List<FoodOrder> foodOrders = new ArrayList<FoodOrder>();
+
+    public DeliveryGuy( String firstNameName, String lastName, String number, String userName, String eMail, String password, Address deliveryGuyAddress, List<FoodOrder> foodOrders) {
+        this.firstNameName = firstNameName;
+        this.lastName = lastName;
+        Number = number;
+        this.userName = userName;
+        this.eMail = eMail;
+        this.password = password;
+        this.deliveryGuyAddress = deliveryGuyAddress;
+        this.foodOrders = foodOrders;
+    }
 }

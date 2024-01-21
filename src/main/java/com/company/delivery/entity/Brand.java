@@ -2,12 +2,18 @@ package com.company.delivery.entity;
 
 import com.company.delivery.utils.Nationality;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name="Brand")
 @Table
+@Getter
+@Setter
+@NoArgsConstructor
 public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,26 +40,7 @@ public class Brand {
         this.listOfRestaurants = new ArrayList<>();
     }
 
-    public Integer getBrandId() {
-        return brandId;
-    }
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public com.company.delivery.utils.Nationality getNationality() {
-        return Nationality;
-    }
-
-    public void setNationality(com.company.delivery.utils.Nationality nationality) {
-        Nationality = nationality;
-    }
 }
 
 

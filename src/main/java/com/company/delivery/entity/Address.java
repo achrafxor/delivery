@@ -1,11 +1,17 @@
 package com.company.delivery.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 @Entity(name="Address")
 @Table
+@Getter
+@Setter
+@NoArgsConstructor
 public class Address {
 
     @Id
@@ -51,49 +57,5 @@ public class Address {
         this.foodOrderAddresses=new ArrayList<>();
     }
 
-    public Integer getAddressId() {
-        return addressId;
-    }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public short getPostal_code() {
-        return postal_code;
-    }
-
-    public void setPostal_code(short postal_code) {
-        this.postal_code = postal_code;
-    }
-
-    public List<Customer> getCustomers() {
-        return customers;
-    }
-
-    public void setCustomers(List<Customer> customers) {
-        this.customers = customers;
-    }
-
-
-
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
-    }
 }

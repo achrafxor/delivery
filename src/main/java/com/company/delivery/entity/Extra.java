@@ -3,6 +3,8 @@ package com.company.delivery.entity;
 import com.company.delivery.utils.FoodExtra;
 import com.fasterxml.jackson.databind.annotation.EnumNaming;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.Set;
 
 @Entity(name="Extra")
 @Table
+@Getter
+@NoArgsConstructor
 public class Extra {
 
     @Id
@@ -27,10 +31,9 @@ public class Extra {
     @OneToMany(mappedBy = "extra", cascade = CascadeType.ALL)
     private Set<CartExtra> CartExtras = new HashSet<>();
 
-
-
-
-
-
-
+    public Extra(FoodExtra item, Short price, Set<CartExtra> cartExtras) {
+        this.item = item;
+        Price = price;
+        CartExtras = cartExtras;
+    }
 }

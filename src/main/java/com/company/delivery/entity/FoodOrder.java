@@ -2,12 +2,18 @@ package com.company.delivery.entity;
 
 import com.company.delivery.utils.OrderStatusEnum;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name="FoodOrder")
 @Table
+@NoArgsConstructor
+@Getter
+@Setter
 public class FoodOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,7 +48,14 @@ public class FoodOrder {
     @JoinColumn(name = "address_id")
     private Address foodOrderAddress;
 
-
-
-
+    public FoodOrder(Customer customer, Restaurant restaurant, String orderTime, OrderStatusEnum orderStatus, Set<CartDish> cartDishes, Set<CartExtra> cartExtras, DeliveryGuy deliveryGuy, Address foodOrderAddress) {
+        this.customer = customer;
+        this.restaurant = restaurant;
+        this.orderTime = orderTime;
+        this.orderStatus = orderStatus;
+        CartDishes = cartDishes;
+        CartExtras = cartExtras;
+        this.deliveryGuy = deliveryGuy;
+        this.foodOrderAddress = foodOrderAddress;
+    }
 }

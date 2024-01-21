@@ -1,6 +1,11 @@
 package com.company.delivery.entity;
 
+
+
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -9,6 +14,9 @@ import java.util.Set;
 
 @Entity(name="Restaurant")
 @Table
+@NoArgsConstructor
+@Getter
+@Setter
 public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +28,7 @@ public class Restaurant {
     private String phoneNumber;
     @Column(nullable = true,unique = false)
     private String Description;
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL  )
     @JoinColumn(name = "address_id")
     private Address restaurantAddress;
 
@@ -44,65 +52,5 @@ public class Restaurant {
         this.orderSet = new HashSet<>();
     }
 
-    public Integer getRestaurantId() {
-        return restaurantId;
-    }
 
-
-
-    public String getRestaurantName() {
-        return RestaurantName;
-    }
-
-    public void setRestaurantName(String restaurantName) {
-        RestaurantName = restaurantName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
-    }
-
-    public Address getRestaurantAddress() {
-        return restaurantAddress;
-    }
-
-    public void setRestaurantAddress(Address restaurantAddress) {
-        this.restaurantAddress = restaurantAddress;
-    }
-
-    public Brand getBrand() {
-        return brand;
-    }
-
-    public void setBrand(Brand brand) {
-        this.brand = brand;
-    }
-
-    public List<Menu> getListOfMenus() {
-        return listOfMenus;
-    }
-
-    public void setListOfMenus(List<Menu> listOfMenus) {
-        this.listOfMenus = listOfMenus;
-    }
-
-    public Set<FoodOrder> getOrderSet() {
-        return orderSet;
-    }
-
-    public void setOrderSet(Set<FoodOrder> orderSet) {
-        this.orderSet = orderSet;
-    }
 }

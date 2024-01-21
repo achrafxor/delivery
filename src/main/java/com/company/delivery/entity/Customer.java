@@ -2,12 +2,18 @@ package com.company.delivery.entity;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name="Customer")
 @Table
+@Getter
+@Setter
+@NoArgsConstructor
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,56 +37,14 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<FoodOrder> orderSet = new HashSet<>();
 
-
-    public Integer getId() {
-        return customerId;
-    }
-
-    public String getCustomerEmail() {
-        return customerEmail;
-    }
-
-    public void setCustomerEmail(String customerEmail) {
+    public Customer( String customerEmail, String firstName, String lastName, String userName, String password, Address customerAddress, Set<FoodOrder> orderSet) {
+        this.customerId = customerId;
         this.customerEmail = customerEmail;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Address getCustomerAddress() {
-        return customerAddress;
-    }
-
-    public void setCustomerAddress(Address customerAddress) {
         this.customerAddress = customerAddress;
+        this.orderSet = orderSet;
     }
 }

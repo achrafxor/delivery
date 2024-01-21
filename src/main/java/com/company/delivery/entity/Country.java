@@ -1,12 +1,18 @@
 package com.company.delivery.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name="Country")
 @Table
+@Getter
+@Setter
+@NoArgsConstructor
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,25 +27,5 @@ public class Country {
         this.countryName = countryName;
     }
 
-    public Integer getCountryId() {
-        return countryId;
-    }
 
-
-
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
-
-    public List<Address> getAddresses() {
-        return addresses;
-    }
-
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
-    }
 }
