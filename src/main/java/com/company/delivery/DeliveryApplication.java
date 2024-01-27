@@ -1,9 +1,6 @@
 package com.company.delivery;
 
-import com.company.delivery.entity.Address;
-import com.company.delivery.entity.Brand;
-import com.company.delivery.entity.Country;
-import com.company.delivery.entity.Restaurant;
+import com.company.delivery.entity.*;
 import com.company.delivery.repository.RestaurantRepository;
 import com.company.delivery.utils.Nationality;
 import org.springframework.boot.CommandLineRunner;
@@ -26,18 +23,16 @@ public class DeliveryApplication {
 					"53570230",
 					"restaurant for making briks",
 					new Address(
-							"Djerba",
+							new City("Mednine",new Country("Tunisia")),
 							"houmt souk",
-                            (short) 4185,
-							new Country("tunisia")),
+                            (short) 4185),
 					new Brand(
 							"macdonalds",
 							Nationality.AFGHAN,
 							new Address(
-									"Djerbax",
+									new City("Nabeul",new Country("Tunisia")),
 									"houmt soukx",
-									(short) 4180,
-									new Country("zambia"))
+									(short) 4180)
 					));
 repository.save(brik);
 

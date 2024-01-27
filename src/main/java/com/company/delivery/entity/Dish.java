@@ -34,7 +34,7 @@ public class Dish {
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
-    @OneToMany(mappedBy = "dish", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "dish", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private Set<CartDish> CartDishes = new HashSet<>();
 
     public Dish( String item, Boolean hasHarisa, Boolean hasMayonnaise, short basicPrice, Menu menu, Set<CartDish> cartDishes) {

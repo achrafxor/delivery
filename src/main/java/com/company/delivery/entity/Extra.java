@@ -28,7 +28,7 @@ public class Extra {
     @Column(nullable = false,unique = false)
     private Short Price;
 
-    @OneToMany(mappedBy = "extra", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "extra", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private Set<CartExtra> CartExtras = new HashSet<>();
 
     public Extra(FoodExtra item, Short price, Set<CartExtra> cartExtras) {

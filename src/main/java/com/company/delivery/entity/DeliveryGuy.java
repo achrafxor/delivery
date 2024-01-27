@@ -37,7 +37,7 @@ public class DeliveryGuy {
     @JoinColumn(name = "address_id")
     private Address deliveryGuyAddress;
 
-    @OneToMany(mappedBy = "deliveryGuy", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "deliveryGuy", cascade = {CascadeType.REFRESH})
     private List<FoodOrder> foodOrders = new ArrayList<FoodOrder>();
 
     public DeliveryGuy( String firstNameName, String lastName, String number, String userName, String eMail, String password, Address deliveryGuyAddress, List<FoodOrder> foodOrders) {

@@ -19,9 +19,6 @@ public class Address {
     private Integer addressId;
 
     @Column(nullable = false,unique = true)
-    private String city;
-
-    @Column(nullable = false,unique = true)
     private String street;
     @Column(nullable = false,unique = true)
     private short postal_code;
@@ -41,15 +38,15 @@ public class Address {
     @OneToMany(mappedBy = "foodOrderAddress", cascade = CascadeType.ALL)
     private List<FoodOrder> foodOrderAddresses = new ArrayList<FoodOrder>();
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "country")
-    private Country country;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "city")
+    private City city;
 
-    public Address(String city, String street, short postal_code, Country country) {
+    public Address(City city, String street, short postal_code) {
         this.city = city;
         this.street = street;
         this.postal_code = postal_code;
-        this.country = country;
+        this.city = city;
         this.customers=new ArrayList<>();
         this.deliveryGuys=new ArrayList<>();
         this.heaQuartersAddresses=new ArrayList<>();

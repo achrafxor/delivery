@@ -30,7 +30,7 @@ public class Brand {
     @JoinColumn(name = "head_quarter_address")
     private Address headQuartersAddress;
 
-    @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "brand", cascade = {CascadeType.ALL})
     private List<Restaurant> listOfRestaurants = new ArrayList<Restaurant>();
 
     public Brand(String name, com.company.delivery.utils.Nationality nationality, Address headQuartersAddress) {

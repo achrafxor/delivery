@@ -20,8 +20,8 @@ public class Country {
     @Column(nullable = false,unique = true)
     private String countryName;
 
-    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
-    private List<Address> addresses = new ArrayList<Address>();
+    @OneToMany(mappedBy = "country", cascade = {CascadeType.REFRESH})
+    private List<City> cities  = new ArrayList<City>();
 
     public Country(String countryName) {
         this.countryName = countryName;

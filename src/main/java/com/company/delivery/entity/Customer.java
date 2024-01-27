@@ -34,7 +34,7 @@ public class Customer {
     @JoinColumn(name = "address_id")
     private Address customerAddress;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer", cascade = {CascadeType.REFRESH})
     private Set<FoodOrder> orderSet = new HashSet<>();
 
     public Customer( String customerEmail, String firstName, String lastName, String userName, String password, Address customerAddress, Set<FoodOrder> orderSet) {

@@ -26,7 +26,7 @@ public class Menu {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
-    @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "menu", cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
     private List<Dish> listOfDishes = new ArrayList<Dish>();
 
     public Menu(FoodCategory foodCategory, Restaurant restaurant, List<Dish> listOfDishes) {

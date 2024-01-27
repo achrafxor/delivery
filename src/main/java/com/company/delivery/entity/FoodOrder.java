@@ -33,10 +33,10 @@ public class FoodOrder {
     @Column(nullable = false,unique = false)
     private OrderStatusEnum orderStatus;
 
-    @OneToMany(mappedBy = "foodOrder", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "foodOrder", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH},fetch = FetchType.LAZY)
     private Set<CartDish> CartDishes = new HashSet<>();
 
-    @OneToMany(mappedBy = "foodOrder", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "foodOrder", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH},fetch = FetchType.LAZY)
     private Set<CartExtra> CartExtras = new HashSet<>();
 
 

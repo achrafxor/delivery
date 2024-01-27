@@ -36,10 +36,10 @@ public class Restaurant {
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "restaurant", cascade = {CascadeType.ALL},fetch = FetchType.LAZY)
     private List<Menu> listOfMenus = new ArrayList<Menu>();
 
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "restaurant", cascade = {CascadeType.REFRESH},fetch = FetchType.LAZY)
     private Set<FoodOrder> orderSet = new HashSet<>();
 
     public Restaurant(String restaurantName, String phoneNumber, String description, Address restaurantAddress, Brand brand) {
