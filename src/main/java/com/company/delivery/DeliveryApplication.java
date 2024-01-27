@@ -15,30 +15,5 @@ public class DeliveryApplication {
 		SpringApplication.run(DeliveryApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner commandLineRunner(RestaurantRepository repository){
-		return  args -> {
-			Restaurant brik=new Restaurant(
-					"BRIK BELGACEM",
-					"53570230",
-					"restaurant for making briks",
-					new Address(
-							new City("Mednine",new Country("Tunisia")),
-							"houmt souk",
-                            (short) 4185),
-					new Brand(
-							"macdonalds",
-							Nationality.AFGHAN,
-							new Address(
-									new City("Nabeul",new Country("Tunisia")),
-									"houmt soukx",
-									(short) 4180)
-					));
-repository.save(brik);
-
-
-		};
-	}
-
 
 }
