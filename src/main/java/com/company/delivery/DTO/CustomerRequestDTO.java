@@ -11,8 +11,8 @@ import lombok.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
-@Builder
+
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
