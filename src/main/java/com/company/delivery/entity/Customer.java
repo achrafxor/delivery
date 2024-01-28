@@ -25,8 +25,7 @@ public class Customer {
 
     @Column(nullable = false,unique = false)
     private String lastName;
-    @Column(nullable = false,unique = true)
-    private String userName;
+
     @Column(nullable = false,unique = false)
     private String password;
 
@@ -37,12 +36,11 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = {CascadeType.REFRESH})
     private Set<FoodOrder> orderSet = new HashSet<>();
 
-    public Customer( String customerEmail, String firstName, String lastName, String userName, String password, Address customerAddress, Set<FoodOrder> orderSet) {
+    public Customer( String customerEmail, String firstName, String lastName, String password, Address customerAddress, Set<FoodOrder> orderSet) {
         this.customerId = customerId;
         this.customerEmail = customerEmail;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
         this.password = password;
         this.customerAddress = customerAddress;
         this.orderSet = orderSet;

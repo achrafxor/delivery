@@ -23,7 +23,6 @@ public class CartDish {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "dish_id")
     private Dish dish;
-
     @Column(nullable = false,unique = false)
     private Short quantity;
 
