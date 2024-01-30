@@ -37,7 +37,7 @@ public class Restaurant {
     private Brand brand;
 
     @OneToMany(mappedBy = "restaurant", cascade = {CascadeType.ALL},fetch = FetchType.LAZY)
-    private List<Menu> listOfMenus = new ArrayList<Menu>();
+    private List<MenuCategory> listOfMenuCategories = new ArrayList<MenuCategory>();
 
     @OneToMany(mappedBy = "restaurant", cascade = {CascadeType.REFRESH},fetch = FetchType.LAZY)
     private Set<FoodOrder> orderSet = new HashSet<>();
@@ -48,7 +48,7 @@ public class Restaurant {
         Description = description;
         this.restaurantAddress = restaurantAddress;
         this.brand = brand;
-        this.listOfMenus = new ArrayList<>();
+        this.listOfMenuCategories = new ArrayList<>();
         this.orderSet = new HashSet<>();
     }
 

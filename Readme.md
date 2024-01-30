@@ -45,3 +45,6 @@ sequenceDiagram
 Client->> Backend: add_customer
 Backend->>SQL: save_user() 
 Backend->>NOSQL: save_user() 
+```
+
+

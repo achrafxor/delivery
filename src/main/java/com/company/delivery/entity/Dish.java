@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity(name="Dish")
@@ -32,18 +31,18 @@ public class Dish {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "menu_id")
-    private Menu menu;
+    private MenuCategory menuCategory;
 
     @OneToMany(mappedBy = "dish", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private Set<CartDish> CartDishes = new HashSet<>();
 
-    public Dish( String item, Boolean hasHarisa, Boolean hasMayonnaise, short basicPrice, Menu menu, Set<CartDish> cartDishes) {
+    public Dish(String item, Boolean hasHarisa, Boolean hasMayonnaise, short basicPrice, MenuCategory menuCategory, Set<CartDish> cartDishes) {
 
         this.item = item;
         this.hasHarisa = hasHarisa;
         this.hasMayonnaise = hasMayonnaise;
         this.basicPrice = basicPrice;
-        this.menu = menu;
+        this.menuCategory = menuCategory;
         CartDishes = cartDishes;
     }
 }

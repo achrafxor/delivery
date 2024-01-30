@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Menu {
+public class MenuCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,7 @@ public class Menu {
     @OneToMany(mappedBy = "menu", cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
     private List<Dish> listOfDishes = new ArrayList<Dish>();
 
-    public Menu(FoodCategory foodCategory, Restaurant restaurant, List<Dish> listOfDishes) {
+    public MenuCategory(FoodCategory foodCategory, Restaurant restaurant, List<Dish> listOfDishes) {
         this.foodCategory = foodCategory;
         this.restaurant = restaurant;
         this.listOfDishes = listOfDishes;
