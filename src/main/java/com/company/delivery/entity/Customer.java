@@ -29,6 +29,9 @@ public class Customer {
     @Column(nullable = false,unique = false)
     private String password;
 
+    @Column(nullable = false,unique = false)
+    private String Gender;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address customerAddress;
